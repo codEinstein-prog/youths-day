@@ -4,20 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Youth Day Program</title>
-
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Reset */
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-
     body {
-      font-family: 'Arial', sans-serif;
-      background: #fffde7; /* cream */
-      color: #000;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfbf6; /* cream */
+      color: #111;
       scroll-snap-type: y mandatory;
       overflow-y: scroll;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #fdfbf6;
+      text-align: center;
+      padding: 1rem;
+      border-bottom: 3px solid #e63946;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #e63946; /* red */
+      margin: 0;
+    }
+    header p {
+      font-style: italic;
+      color: #111;
+      margin: 0;
     }
 
     section {
@@ -29,200 +45,177 @@
       scroll-snap-align: start;
       padding: 2rem;
       text-align: center;
-      border-bottom: 2px solid #fbc02d; /* yellow accent line */
     }
 
-    h1, h2 {
-      color: #b71c1c; /* deep red */
+    h2 {
+      font-size: 2rem;
       margin-bottom: 1rem;
-    }
-
-    h2 i {
-      margin-right: 0.5rem;
-      color: #fbc02d;
+      color: #111;
+      border-bottom: 3px solid #ffcc00; /* yellow accent */
+      display: inline-block;
+      padding-bottom: .2rem;
     }
 
     ul {
       list-style: none;
-      margin-top: 1rem;
-    }
-
-    ul li {
-      font-size: 1.1rem;
-      margin: 0.5rem 0;
-      color: #333;
-    }
-
-    .card {
-      background: #fff;
-      border: 2px solid #000;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      padding: 1.5rem;
-      width: 100%;
+      padding: 0;
       max-width: 800px;
-      transition: transform 0.3s ease;
+      width: 100%;
     }
 
-    .card:hover {
-      transform: scale(1.03);
+    li {
+      background: #fff;
+      border: 2px solid #e63946;
+      border-radius: 12px;
+      margin: .8rem 0;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
 
-    .live-tag {
-      display: inline-block;
-      background: #d32f2f;
-      color: #fff;
-      font-size: 0.9rem;
+    li .time {
       font-weight: bold;
-      padding: 0.3rem 0.7rem;
+      color: #e63946;
+      margin-right: 1rem;
+      white-space: nowrap;
+    }
+
+    li .details {
+      flex-grow: 1;
+      text-align: left;
+    }
+
+    li i {
+      color: #ffcc00;
+      font-size: 1.2rem;
+      margin-right: .5rem;
+    }
+
+    .live {
+      border-color: #111;
+      background: #ffe9e9;
+      position: relative;
+    }
+
+    .live::after {
+      content: "LIVE";
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #e63946;
+      color: #fff;
+      font-size: .7rem;
+      padding: .2rem .5rem;
       border-radius: 6px;
-      margin-left: 10px;
       animation: pulse 1.5s infinite;
     }
 
     @keyframes pulse {
-      0% { box-shadow: 0 0 5px #d32f2f; }
-      50% { box-shadow: 0 0 15px #d32f2f; }
-      100% { box-shadow: 0 0 5px #d32f2f; }
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      background: #fbc02d;
-      color: #000;
-      padding: 1rem;
-      font-size: 1.2rem;
-      font-weight: bold;
+    footer {
       text-align: center;
-      z-index: 1000;
+      padding: 1rem;
+      font-style: italic;
+      background: #fdfbf6;
+      border-top: 2px solid #e63946;
     }
 
     @media (max-width: 768px) {
-      h1 { font-size: 1.8rem; }
-      h2 { font-size: 1.3rem; }
-      ul li { font-size: 1rem; }
+      li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      li .time {
+        margin-bottom: .3rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Sticky Theme Banner -->
-  <header>
-    Theme: Anchored in Christ – Come with an Open Heart
-  </header>
+<header>
+  <h1>Youth Day – Anchored in Christ</h1>
+  <p>Spring Village SDA • August 16th</p>
+</header>
 
-  <!-- Event Sections -->
-  <section>
-    <div class="card">
-      <h1><i class="fa-solid fa-hands-praying"></i> Youth Day Program</h1>
-      <p>Spring Village SDA Church</p>
-      <p><b>Date:</b> Sabbath, 16th August @ 9:15 AM</p>
-      <p>Join us for Inspirational Singing, Spiritual Uplifting and Christian Fellowship</p>
-    </div>
-  </section>
+<!-- Sabbath School -->
+<section>
+  <h2><i class="fa-solid fa-book-bible"></i> Sabbath School</h2>
+  <ul>
+    <li><span class="time">9:30 AM</span><span class="details">Sabbath School Begins</span></li>
+    <li><span class="time">10:00 AM</span><span class="details">Break for Lesson Study</span></li>
+    <li><span class="time">10:30 AM</span><span class="details">Sabbath School ends – Special to close</span></li>
+  </ul>
+</section>
 
-  <section id="sabbath-school">
-    <div class="card">
-      <h2><i class="fa-solid fa-book-bible"></i> Sabbath School</h2>
-      <ul>
-        <li>Welcome & Opening Prayer</li>
-        <li>Song Service</li>
-        <li>Lesson Study</li>
-        <li>Special Item</li>
-      </ul>
-    </div>
-  </section>
+<!-- Divine Service -->
+<section>
+  <h2><i class="fa-solid fa-church"></i> Divine Service</h2>
+  <ul>
+    <li><span class="time">11:15 AM</span><span class="details">Call to Worship</span></li>
+    <li><span class="time">11:17 AM</span><span class="details">Scene 1</span></li>
+    <li><span class="time">11:22 AM</span><span class="details">Welcome – Raheem Williams</span></li>
+    <li><span class="time">11:22 AM</span><span class="details">Opening Hymn – Holy Sabbath Day of Rest</span></li>
+    <li><span class="time">11:23 AM</span><span class="details">Scene 2</span></li>
+    <li><span class="time">11:30 AM</span><span class="details">Special – Yoneika Edwards & Agape Jr</span></li>
+    <li><span class="time">11:40 AM</span><span class="details">Feeding of the Lambs – Kenroy Martin</span></li>
+    <li><span class="time">11:50 AM</span><span class="details">Scene 3</span></li>
+    <li><span class="time">12:00 PM</span><span class="details">Testimony from Congregation</span></li>
+    <li><span class="time">12:10 PM</span><span class="details">Prayer – Winard Bilings</span></li>
+    <li><span class="time">12:15 PM</span><span class="details">Offertory</span></li>
+    <li><span class="time">12:20 PM</span><span class="details">Special – Yoneika Edwards</span></li>
+    <li><span class="time">12:24 PM</span><span class="details">Scene continues</span></li>
+    <li><span class="time">12:34 PM</span><span class="details">Special – Agape Jr</span></li>
+    <li><span class="time">12:40 PM</span><span class="details">Final Scene</span></li>
+    <li><span class="time">12:50 PM</span><span class="details">Charge – Marc</span></li>
+    <li><span class="time">1:00 PM</span><span class="details">Benediction & Closing Hymn</span></li>
+  </ul>
+</section>
 
-  <section id="divine-service">
-    <div class="card">
-      <h2><i class="fa-solid fa-person-chalkboard"></i> Divine Service</h2>
-      <ul>
-        <li>Processional & Praise</li>
-        <li>Scripture Reading</li>
-        <li>Youth Choir – Special Music</li>
-        <li>Sermon: Anchored in Christ</li>
-      </ul>
-    </div>
-  </section>
+<!-- Fellowship & Games -->
+<section>
+  <h2><i class="fa-solid fa-gamepad"></i> Fellowship & Games</h2>
+  <ul>
+    <li><span class="time">After Vespers</span><span class="details">Games Night</span></li>
+  </ul>
+</section>
 
-  <section id="lunch">
-    <div class="card">
-      <h2><i class="fa-solid fa-utensils"></i> Lunch Break</h2>
-      <ul>
-        <li>Fellowship Lunch in Church Hall</li>
-        <li>Networking & Sharing</li>
-      </ul>
-    </div>
-  </section>
+<footer>
+  <p>“God Bless Us All!”</p>
+</footer>
 
-  <section id="afternoon">
-    <div class="card">
-      <h2><i class="fa-solid fa-music"></i> Afternoon Program</h2>
-      <ul>
-        <li>Youth Testimonies</li>
-        <li>Interactive Bible Quiz</li>
-        <li>Musical Presentations</li>
-      </ul>
-    </div>
-  </section>
+<script>
+  // Auto highlight LIVE event
+  function checkLive() {
+    const now = new Date();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    const items = document.querySelectorAll("li");
 
-  <section id="vespers">
-    <div class="card">
-      <h2><i class="fa-solid fa-hands-praying"></i> Vespers</h2>
-      <ul>
-        <li>Closing Thoughts</li>
-        <li>Final Song</li>
-        <li>Prayer of Dedication</li>
-      </ul>
-    </div>
-  </section>
+    items.forEach(li => li.classList.remove("live"));
 
-  <section id="games-night">
-    <div class="card">
-      <h2><i class="fa-solid fa-gamepad"></i> Games Night</h2>
-      <ul>
-        <li>Team Activities</li>
-        <li>Board Games</li>
-        <li>Sports & Fellowship</li>
-      </ul>
-    </div>
-  </section>
-
-  <script>
-    // Example schedule to set LIVE tags (24hr format for simplicity)
-    const schedule = [
-      { id: "sabbath-school", start: 9, end: 11 },
-      { id: "divine-service", start: 11, end: 13 },
-      { id: "lunch", start: 13, end: 14 },
-      { id: "afternoon", start: 14, end: 16 },
-      { id: "vespers", start: 16, end: 17 },
-      { id: "games-night", start: 18, end: 20 },
-    ];
-
-    function updateLiveTag() {
-      const now = new Date();
-      const hour = now.getHours();
-      schedule.forEach(event => {
-        const section = document.getElementById(event.id);
-        const h2 = section.querySelector("h2");
-        const existingTag = h2.querySelector(".live-tag");
-        if (hour >= event.start && hour < event.end) {
-          if (!existingTag) {
-            const span = document.createElement("span");
-            span.className = "live-tag";
-            span.textContent = "LIVE";
-            h2.appendChild(span);
-          }
-        } else {
-          if (existingTag) existingTag.remove();
+    items.forEach(li => {
+      const timeText = li.querySelector(".time").textContent;
+      if (timeText.includes("AM") || timeText.includes("PM")) {
+        const eventTime = new Date(now.toDateString() + " " + timeText);
+        const diff = (now - eventTime) / 60000; // minutes
+        if (diff >= 0 && diff < 10) {
+          li.classList.add("live");
         }
-      });
-    }
+      }
+    });
+  }
 
-    setInterval(updateLiveTag, 60000); // check every minute
-    updateLiveTag(); // run on load
-  </script>
+  setInterval(checkLive, 60000);
+  checkLive();
+</script>
 
 </body>
 </html>
