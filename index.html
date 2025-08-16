@@ -3,201 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Youth's Day Live Program</title>
+  <title>Youth Day Program</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    :root {
-      --red: #C62828;
-      --yellow: #F9C640;
-      --black: #111111;
-      --cream: #FFF8F3;
-      --white: #ffffff;
+    /* Reset */
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #fffde7; /* cream */
+      color: #000;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: var(--cream); color: var(--black); overflow-x: hidden; }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      scroll-snap-align: start;
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 2px solid #fbc02d; /* yellow accent line */
+    }
+
+    h1, h2 {
+      color: #b71c1c; /* deep red */
+      margin-bottom: 1rem;
+    }
+
+    h2 i {
+      margin-right: 0.5rem;
+      color: #fbc02d;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    ul li {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+      color: #333;
+    }
+
+    .card {
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 800px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .live-tag {
+      display: inline-block;
+      background: #d32f2f;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: bold;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      margin-left: 10px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 5px #d32f2f; }
+      50% { box-shadow: 0 0 15px #d32f2f; }
+      100% { box-shadow: 0 0 5px #d32f2f; }
+    }
 
     header {
-      position: sticky; top: 0; background: var(--cream);
-      border-bottom: 2px solid var(--red);
+      position: sticky;
+      top: 0;
+      background: #fbc02d;
+      color: #000;
       padding: 1rem;
-      display: flex; justify-content: space-between; align-items: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
       z-index: 1000;
-      flex-wrap: wrap;
     }
-    header h1 { color: var(--red); font-size: 1.5rem; }
-    header .meta { font-size: 0.9rem; display: flex; gap: 1rem; color: var(--black); flex-wrap: wrap; }
 
-    .hero { width: 100%; padding: 2rem 1rem; text-align: center; background: var(--cream); }
-    .hero h2 { font-size: 2rem; color: var(--black); }
-    .hero span { color: var(--red); }
-    .hero p { margin-top: 0.5rem; font-size: 1rem; }
-    .hero ul { margin-top: 1rem; list-style: disc; padding-left: 1.2rem; text-align: left; max-width: 800px; margin-inline: auto; }
-
-    .schedule { width: 100%; overflow-y: auto; scroll-snap-type: y mandatory; }
-    .section { min-height: 100vh; scroll-snap-align: start; display: flex; justify-content: center; align-items: flex-start; padding: 2rem 1rem; }
-    .card { background: var(--white); border-radius: 1rem; padding: 2rem; width: 100%; max-width: 1000px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    .card h3 { color: var(--red); margin-bottom: 0.5rem; font-size: 1.5rem; }
-    .card .time { font-weight: bold; margin-bottom: 0.5rem; color: var(--black); }
-    .card .lead { font-style: italic; margin-bottom: 1rem; color: var(--black); }
-    .card ul { margin-left: 1.2rem; list-style: square; }
-
-    .chip { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 999px; font-size: 0.75rem; margin-bottom: 1rem; font-weight: bold; background: var(--yellow); color: var(--black); }
-    .live { background: var(--red); color: white; animation: pulse 1.2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-
-    footer { text-align: center; padding: 1rem; border-top: 2px solid var(--red); background: var(--cream); color: var(--black); font-size: 0.9rem; }
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      ul li { font-size: 1rem; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Sticky Theme Banner -->
   <header>
-    <h1>Youth's Day</h1>
-    <div class="meta">
-      <span>Sabbath, 16th Aug.</span>
-      <span>9:15 AM</span>
-      <span>Spring Village SDA Church</span>
-    </div>
+    Theme: Anchored in Christ – Come with an Open Heart
   </header>
 
-  <section class="hero">
-    <h2><span>Youth's</span> Day Live Program</h2>
-    <p>Theme: <strong style="color: var(--red)">Anchored in Christ</strong></p>
-    <p>Come with an open heart</p>
-    <ul>
-      <li>Inspirational singing, spiritual uplifting, and good Christian fellowship</li>
-      <li>Bring a friend</li>
-      <li>Games night after Vespers</li>
-    </ul>
+  <!-- Event Sections -->
+  <section>
+    <div class="card">
+      <h1><i class="fa-solid fa-hands-praying"></i> Youth Day Program</h1>
+      <p>Spring Village SDA Church</p>
+      <p><b>Date:</b> Sabbath, 16th August @ 9:15 AM</p>
+      <p>Join us for Inspirational Singing, Spiritual Uplifting and Christian Fellowship</p>
+    </div>
   </section>
 
-  <div class="schedule" id="schedule">
-    <div class="section">
-      <div class="card" id="songservice">
-        <div class="chip">Worship</div>
-        <h3>Song Service</h3>
-        <p class="time">9:15 AM – 9:35 AM</p>
-        <p class="lead">Lead: Youth Chorale</p>
-        <ul>
-          <li>Praise & Worship songs</li>
-          <li>Opening prayer</li>
-        </ul>
-      </div>
+  <section id="sabbath-school">
+    <div class="card">
+      <h2><i class="fa-solid fa-book-bible"></i> Sabbath School</h2>
+      <ul>
+        <li>Welcome & Opening Prayer</li>
+        <li>Song Service</li>
+        <li>Lesson Study</li>
+        <li>Special Item</li>
+      </ul>
     </div>
-    <div class="section">
-      <div class="card" id="sabbathschool">
-        <div class="chip">Study</div>
-        <h3>Sabbath School</h3>
-        <p class="time">9:35 AM – 10:45 AM</p>
-        <p class="lead">Lead: Youth Department</p>
-        <ul>
-          <li>Welcome & Opening Remarks</li>
-          <li>Lesson Review & Discussions</li>
-          <li>Special Music</li>
-          <li>Prayer Session</li>
-        </ul>
-      </div>
-    </div>
-    <div class="section">
-      <div class="card" id="divine">
-        <div class="chip live">LIVE</div>
-        <h3>Divine Service</h3>
-        <p class="time">11:00 AM – 12:30 PM</p>
-        <p class="lead">Speaker: Youth Guest</p>
-        <ul>
-          <li>Call to Worship</li>
-          <li>Opening Hymn</li>
-          <li>Scripture Reading</li>
-          <li>Sermon: Anchored in Christ</li>
-          <li>Closing Prayer</li>
-        </ul>
-      </div>
-    </div>
-    <div class="section">
-      <div class="card" id="lunch">
-        <div class="chip">Fellowship</div>
-        <h3>Fellowship Lunch</h3>
-        <p class="time">12:30 PM – 2:30 PM</p>
-        <p class="lead">Lead: Hospitality Team</p>
-        <ul>
-          <li>Buffet Lunch</li>
-          <li>Group Fellowship & Sharing</li>
-        </ul>
-      </div>
-    </div>
-    <div class="section">
-      <div class="card" id="ay">
-        <div class="chip">Youth</div>
-        <h3>Adventist Youth (AY)</h3>
-        <p class="time">4:30 PM – 6:00 PM</p>
-        <p class="lead">Lead: AY Leaders</p>
-        <ul>
-          <li>Special Music & Performances</li>
-          <li>Youth Testimonies</li>
-          <li>Drama & Roleplay</li>
-        </ul>
-      </div>
-    </div>
-    <div class="section">
-      <div class="card" id="vespers">
-        <div class="chip">Worship</div>
-        <h3>Vespers</h3>
-        <p class="time">6:00 PM – 6:30 PM</p>
-        <p class="lead">Lead: Youth Team</p>
-        <ul>
-          <li>Evening Devotional</li>
-          <li>Closing Hymn</li>
-          <li>Benediction</li>
-        </ul>
-      </div>
-    </div>
-    <div class="section">
-      <div class="card" id="games">
-        <div class="chip">Fun</div>
-        <h3>Games Night</h3>
-        <p class="time">7:30 PM – 9:30 PM</p>
-        <p class="lead">Lead: Recreation Team</p>
-        <ul>
-          <li>Team Challenges</li>
-          <li>Board & Group Games</li>
-          <li>Interactive Fun Activities</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  </section>
 
-  <footer>
-    Theme: Anchored in Christ • Come with an open heart<br>
-    Spring Village SDA Church • Invite a friend
-  </footer>
+  <section id="divine-service">
+    <div class="card">
+      <h2><i class="fa-solid fa-person-chalkboard"></i> Divine Service</h2>
+      <ul>
+        <li>Processional & Praise</li>
+        <li>Scripture Reading</li>
+        <li>Youth Choir – Special Music</li>
+        <li>Sermon: Anchored in Christ</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="lunch">
+    <div class="card">
+      <h2><i class="fa-solid fa-utensils"></i> Lunch Break</h2>
+      <ul>
+        <li>Fellowship Lunch in Church Hall</li>
+        <li>Networking & Sharing</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="afternoon">
+    <div class="card">
+      <h2><i class="fa-solid fa-music"></i> Afternoon Program</h2>
+      <ul>
+        <li>Youth Testimonies</li>
+        <li>Interactive Bible Quiz</li>
+        <li>Musical Presentations</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="vespers">
+    <div class="card">
+      <h2><i class="fa-solid fa-hands-praying"></i> Vespers</h2>
+      <ul>
+        <li>Closing Thoughts</li>
+        <li>Final Song</li>
+        <li>Prayer of Dedication</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="games-night">
+    <div class="card">
+      <h2><i class="fa-solid fa-gamepad"></i> Games Night</h2>
+      <ul>
+        <li>Team Activities</li>
+        <li>Board Games</li>
+        <li>Sports & Fellowship</li>
+      </ul>
+    </div>
+  </section>
 
   <script>
-    function updateLiveStatus(){
+    // Example schedule to set LIVE tags (24hr format for simplicity)
+    const schedule = [
+      { id: "sabbath-school", start: 9, end: 11 },
+      { id: "divine-service", start: 11, end: 13 },
+      { id: "lunch", start: 13, end: 14 },
+      { id: "afternoon", start: 14, end: 16 },
+      { id: "vespers", start: 16, end: 17 },
+      { id: "games-night", start: 18, end: 20 },
+    ];
+
+    function updateLiveTag() {
       const now = new Date();
-      const schedule = [
-        {id: 'songservice', start: '09:15', end: '09:35'},
-        {id: 'sabbathschool', start: '09:35', end: '10:45'},
-        {id: 'divine', start: '11:00', end: '12:30'},
-        {id: 'lunch', start: '12:30', end: '14:30'},
-        {id: 'ay', start: '16:30', end: '18:00'},
-        {id: 'vespers', start: '18:00', end: '18:30'},
-        {id: 'games', start: '19:30', end: '21:30'}
-      ];
-      schedule.forEach(item => {
-        const card = document.getElementById(item.id);
-        const chip = card.querySelector('.chip');
-        chip.classList.remove('live');
-        const today = new Date();
-        const [sh, sm] = item.start.split(':').map(Number);
-        const [eh, em] = item.end.split(':').map(Number);
-        const start = new Date(today.getFullYear(), today.getMonth(), today.getDate(), sh, sm);
-        const end = new Date(today.getFullYear(), today.getMonth(), today.getDate(), eh, em);
-        if (now >= start && now <= end) {
-          chip.classList.add('live');
-          chip.textContent = 'LIVE';
-          card.scrollIntoView({behavior: 'smooth'});
+      const hour = now.getHours();
+      schedule.forEach(event => {
+        const section = document.getElementById(event.id);
+        const h2 = section.querySelector("h2");
+        const existingTag = h2.querySelector(".live-tag");
+        if (hour >= event.start && hour < event.end) {
+          if (!existingTag) {
+            const span = document.createElement("span");
+            span.className = "live-tag";
+            span.textContent = "LIVE";
+            h2.appendChild(span);
+          }
+        } else {
+          if (existingTag) existingTag.remove();
         }
       });
     }
-    updateLiveStatus();
-    setInterval(updateLiveStatus, 60000);
+
+    setInterval(updateLiveTag, 60000); // check every minute
+    updateLiveTag(); // run on load
   </script>
+
 </body>
 </html>
